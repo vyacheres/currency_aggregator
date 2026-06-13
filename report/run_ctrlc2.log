@@ -1,0 +1,106 @@
+2026-06-13 15:38:56,226 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-SEK-USD mock-источник, rate=108.0369
+2026-06-13 15:38:56,256 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-INR-USD mock-источник, rate=142.1174
+2026-06-13 15:38:56,353 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-PLN-USD mock-источник, rate=58.9178
+2026-06-13 15:38:56,354 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-CZK-USD mock-источник, rate=103.1960
+2026-06-13 15:38:56,354 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-KRW-USD mock-источник, rate=65.1339
+2026-06-13 15:38:56,354 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-CAD-USD mock-источник, rate=127.3441
+2026-06-13 15:38:56,383 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-NZD-USD mock-источник, rate=98.4864
+2026-06-13 15:38:56,384 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-DKK-USD mock-источник, rate=44.4191
+2026-06-13 15:38:56,384 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-BRL-USD mock-источник, rate=49.2431
+2026-06-13 15:38:56,420 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-HUF-USD mock-источник, rate=44.7666
+2026-06-13 15:38:56,420 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-NOK-USD mock-источник, rate=94.4438
+2026-06-13 15:38:56,466 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-RON-USD mock-источник, rate=130.2286
+2026-06-13 15:38:56,466 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-SGD-USD mock-источник, rate=147.1858
+2026-06-13 15:38:56,468 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-AUD-USD mock-источник, rate=131.5305
+2026-06-13 15:38:56,468 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-TRY-USD mock-источник, rate=88.7539
+2026-06-13 15:38:56,469 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-HKD-USD mock-источник, rate=134.8058
+2026-06-13 15:38:56,470 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-ZAR-USD mock-источник, rate=139.2962
+2026-06-13 15:38:56,470 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-THB-USD mock-источник, rate=129.7972
+2026-06-13 15:38:56,503 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-ILS-USD mock-источник, rate=14.4245
+2026-06-13 15:38:56,566 [MainProcess:MainThread] INFO currency_aggregator: cid=MOCK-MXN-USD mock-источник, rate=7.0479
+2026-06-13 15:38:56,678 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-GBP-JPY успешно получен курс 214.700000 (попытка 1)
+2026-06-13 15:38:56,680 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-GBP-EUR успешно получен курс 1.158700 (попытка 1)
+2026-06-13 15:38:56,680 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-EUR-CHF успешно получен курс 0.921700 (попытка 1)
+2026-06-13 15:38:56,681 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-JPY-USD успешно получен курс 0.006240 (попытка 1)
+2026-06-13 15:38:56,693 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-USD-GBP успешно получен курс 0.746130 (попытка 1)
+2026-06-13 15:38:56,693 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-GBP-CHF успешно получен курс 1.068000 (попытка 1)
+2026-06-13 15:38:56,694 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-EUR-USD успешно получен курс 1.156700 (попытка 1)
+2026-06-13 15:38:56,695 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-USD-CHF успешно получен курс 0.796840 (попытка 1)
+2026-06-13 15:38:56,698 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-CHF-GBP успешно получен курс 0.936370 (попытка 1)
+2026-06-13 15:38:56,698 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-USD-JPY успешно получен курс 160.200000 (попытка 1)
+2026-06-13 15:38:56,699 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-AVAXUSDT успешно получен курс 6.663000 (попытка 1)
+2026-06-13 15:38:56,715 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-JPY-CHF успешно получен курс 0.004970 (попытка 1)
+2026-06-13 15:38:56,720 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-JPY-EUR успешно получен курс 0.005400 (попытка 1)
+2026-06-13 15:38:56,724 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-CHF-USD успешно получен курс 1.255000 (попытка 1)
+2026-06-13 15:38:56,726 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-CHF-EUR успешно получен курс 1.085000 (попытка 1)
+2026-06-13 15:38:56,731 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-JPY-GBP успешно получен курс 0.004660 (попытка 1)
+2026-06-13 15:38:56,735 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-EUR-GBP успешно получен курс 0.863050 (попытка 1)
+2026-06-13 15:38:56,749 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-GBP-USD успешно получен курс 1.340200 (попытка 1)
+2026-06-13 15:38:56,751 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-CHF-JPY успешно получен курс 201.040000 (попытка 1)
+2026-06-13 15:38:56,751 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-USD-EUR успешно получен курс 0.864530 (попытка 1)
+2026-06-13 15:38:56,757 [MainProcess:MainThread] INFO currency_aggregator: cid=FX-EUR-JPY успешно получен курс 185.300000 (попытка 1)
+2026-06-13 15:38:56,795 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-BNBUSDT успешно получен курс 607.570000 (попытка 1)
+2026-06-13 15:38:56,798 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-ADAUSDT успешно получен курс 0.173300 (попытка 1)
+2026-06-13 15:38:56,798 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-ETHUSDT успешно получен курс 1678.420000 (попытка 1)
+2026-06-13 15:38:56,799 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-XRPUSDT успешно получен курс 1.150500 (попытка 1)
+2026-06-13 15:38:56,799 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-DOTUSDT успешно получен курс 0.987000 (попытка 1)
+2026-06-13 15:38:56,799 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-BTCUSDT успешно получен курс 64004.640000 (попытка 1)
+2026-06-13 15:38:56,800 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-DOGEUSDT успешно получен курс 0.088080 (попытка 1)
+2026-06-13 15:38:56,800 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-SOLUSDT успешно получен курс 67.830000 (попытка 1)
+2026-06-13 15:38:56,800 [MainProcess:MainThread] INFO currency_aggregator: cid=BN-LINKUSDT успешно получен курс 7.994000 (попытка 1)
+2026-06-13 15:38:56,818 [MainProcess:MainThread] INFO currency_aggregator: collect: все 50 запросов обработаны, poison pill отправлен
+2026-06-13 15:38:57,086 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-SEK-USD сохранена запись SEK/USD avg=108.036849 std=1.081256 source=mock
+2026-06-13 15:38:57,101 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-INR-USD сохранена запись INR/USD avg=142.117074 std=1.422082 source=mock
+2026-06-13 15:38:57,127 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-PLN-USD сохранена запись PLN/USD avg=58.916658 std=0.589118 source=mock
+2026-06-13 15:38:57,141 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-CZK-USD сохранена запись CZK/USD avg=103.197675 std=1.032256 source=mock
+2026-06-13 15:38:57,154 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-KRW-USD сохранена запись KRW/USD avg=65.133144 std=0.651459 source=mock
+2026-06-13 15:38:57,180 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-CAD-USD сохранена запись CAD/USD avg=127.344851 std=1.274093 source=mock
+2026-06-13 15:38:57,192 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-NZD-USD сохранена запись NZD/USD avg=98.487202 std=0.985526 source=mock
+2026-06-13 15:38:57,208 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-DKK-USD сохранена запись DKK/USD avg=44.417820 std=0.444557 source=mock
+2026-06-13 15:38:57,239 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-BRL-USD сохранена запись BRL/USD avg=49.242334 std=0.492998 source=mock
+2026-06-13 15:38:57,251 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-HUF-USD сохранена запись HUF/USD avg=44.766083 std=0.447578 source=mock
+2026-06-13 15:38:57,269 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-NOK-USD сохранена запись NOK/USD avg=94.441670 std=0.944552 source=mock
+2026-06-13 15:38:57,301 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-RON-USD сохранена запись RON/USD avg=130.226345 std=1.305301 source=mock
+2026-06-13 15:38:57,312 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-SGD-USD сохранена запись SGD/USD avg=147.186111 std=1.470423 source=mock
+2026-06-13 15:38:57,326 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-AUD-USD сохранена запись AUD/USD avg=131.534089 std=1.310967 source=mock
+2026-06-13 15:38:57,373 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-TRY-USD сохранена запись TRY/USD avg=88.756338 std=0.888685 source=mock
+2026-06-13 15:38:57,398 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-HKD-USD сохранена запись HKD/USD avg=134.805273 std=1.347555 source=mock
+2026-06-13 15:38:57,434 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-ZAR-USD сохранена запись ZAR/USD avg=139.294745 std=1.393142 source=mock
+2026-06-13 15:38:57,459 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-THB-USD сохранена запись THB/USD avg=129.799405 std=1.301274 source=mock
+2026-06-13 15:38:57,482 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-ILS-USD сохранена запись ILS/USD avg=14.424552 std=0.144300 source=mock
+2026-06-13 15:38:57,516 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=MOCK-MXN-USD сохранена запись MXN/USD avg=7.047824 std=0.070424 source=mock
+2026-06-13 15:38:57,542 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-GBP-JPY сохранена запись GBP/JPY avg=214.702227 std=2.147677 source=frankfurter
+2026-06-13 15:38:57,575 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-GBP-EUR сохранена запись GBP/EUR avg=1.158679 std=0.011591 source=frankfurter
+2026-06-13 15:38:57,616 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-EUR-CHF сохранена запись EUR/CHF avg=0.921717 std=0.009225 source=frankfurter
+2026-06-13 15:38:57,643 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-JPY-USD сохранена запись JPY/USD avg=0.006240 std=0.000062 source=frankfurter
+2026-06-13 15:38:57,665 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-USD-GBP сохранена запись USD/GBP avg=0.746127 std=0.007457 source=frankfurter
+2026-06-13 15:38:57,699 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-GBP-CHF сохранена запись GBP/CHF avg=1.068019 std=0.010689 source=frankfurter
+2026-06-13 15:38:57,728 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-EUR-USD сохранена запись EUR/USD avg=1.156718 std=0.011578 source=frankfurter
+2026-06-13 15:38:57,753 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-USD-CHF сохранена запись USD/CHF avg=0.796841 std=0.007970 source=frankfurter
+2026-06-13 15:38:57,789 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-CHF-GBP сохранена запись CHF/GBP avg=0.936385 std=0.009368 source=frankfurter
+2026-06-13 15:38:57,822 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-USD-JPY сохранена запись USD/JPY avg=160.202219 std=1.601072 source=frankfurter
+2026-06-13 15:38:57,856 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-AVAXUSDT сохранена запись AVAXUSDT avg=6.663043 std=0.066639 source=binance
+2026-06-13 15:38:57,893 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-JPY-CHF сохранена запись JPY/CHF avg=0.004970 std=0.000050 source=frankfurter
+2026-06-13 15:38:57,924 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-JPY-EUR сохранена запись JPY/EUR avg=0.005400 std=0.000054 source=frankfurter
+2026-06-13 15:38:57,953 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-CHF-USD сохранена запись CHF/USD avg=1.254999 std=0.012549 source=frankfurter
+2026-06-13 15:38:57,984 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-CHF-EUR сохранена запись CHF/EUR avg=1.085002 std=0.010849 source=frankfurter
+2026-06-13 15:38:57,986 [MainProcess:MainThread] INFO currency_aggregator: dispatcher: все элементы обработаны, poison pill отправлен
+2026-06-13 15:38:58,016 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-JPY-GBP сохранена запись JPY/GBP avg=0.004660 std=0.000047 source=frankfurter
+2026-06-13 15:38:58,040 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-EUR-GBP сохранена запись EUR/GBP avg=0.863059 std=0.008616 source=frankfurter
+2026-06-13 15:38:58,077 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-GBP-USD сохранена запись GBP/USD avg=1.340220 std=0.013395 source=frankfurter
+2026-06-13 15:38:58,108 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-CHF-JPY сохранена запись CHF/JPY avg=201.043000 std=2.006398 source=frankfurter
+2026-06-13 15:38:58,140 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-USD-EUR сохранена запись USD/EUR avg=0.864526 std=0.008643 source=frankfurter
+2026-06-13 15:38:58,171 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-EUR-JPY сохранена запись EUR/JPY avg=185.301826 std=1.851100 source=frankfurter
+2026-06-13 15:38:58,213 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-BNBUSDT сохранена запись BNBUSDT avg=607.586738 std=6.071666 source=binance
+2026-06-13 15:38:58,242 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-ADAUSDT сохранена запись ADAUSDT avg=0.173301 std=0.001731 source=binance
+2026-06-13 15:38:58,284 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-ETHUSDT сохранена запись ETHUSDT avg=1678.424086 std=16.795426 source=binance
+2026-06-13 15:38:58,316 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-XRPUSDT сохранена запись XRPUSDT avg=1.150505 std=0.011494 source=binance
+2026-06-13 15:38:58,344 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-DOTUSDT сохранена запись DOTUSDT avg=0.987012 std=0.009852 source=binance
+2026-06-13 15:38:58,372 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-BTCUSDT сохранена запись BTCUSDT avg=64004.582016 std=640.072134 source=binance
+2026-06-13 15:38:58,411 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-DOGEUSDT сохранена запись DOGEUSDT avg=0.088083 std=0.000883 source=binance
+2026-06-13 15:38:58,437 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-SOLUSDT сохранена запись SOLUSDT avg=67.830035 std=0.679101 source=binance
+2026-06-13 15:38:58,465 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=BN-LINKUSDT сохранена запись LINKUSDT avg=7.994047 std=0.079862 source=binance
+2026-06-13 15:38:58,466 [MainProcess:MainThread] INFO currency_aggregator: store_consumer: завершено, сохранено 50 записей
+2026-06-13 15:38:58,466 [MainProcess:MainThread] INFO currency_aggregator: Завершение executors (ProcessPoolExecutor, ThreadPoolExecutor)...
+2026-06-13 15:38:58,650 [MainProcess:MainThread] INFO currency_aggregator: Конвейер завершен за 2.36 сек, сохранено записей: 50
+2026-06-13 15:38:58,651 [MainProcess:MainThread] INFO currency_aggregator.main: Готово. Время выполнения гибридного конвейера: 2.36 сек
