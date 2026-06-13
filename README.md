@@ -37,15 +37,22 @@
 Данные проходят через три этапа конвейера, соединённые очередями, и
 завершаются строго через **poison pills** (`None`):
 
-```
-┌───────────────────────┐   asyncio.Queue   ┌──────────────────────────────┐   mp.Queue   ┌────────────────────────────┐
-│   Этап 1 · collect()    │ ───────────────▶ │   Этап 2 · dispatcher()        │ ──────────▶ │   Этап 3 · store_consumer() │
-│                         │                   │                                │              │                             │
-│  asyncio + aiohttp       │                   │  run_in_executor(                │              │  run_in_executor(            │
-│  as_completed, ретраи,   │                   │    ProcessPoolExecutor,          │              │    ThreadPoolExecutor,        │
-│  таймауты, 50 запросов   │                   │    processor.process_rate)        │              │    storage.save_rate)         │
-│                         │                   │  → multiprocessing.Queue          │              │  → SQLite (rates)            │
-└───────────────────────┘                   └──────────────────────────────┘              └────────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph S1["Этап 1 · collect()"]
+        A["asyncio + aiohttp<br/>as_completed, ретраи,<br/>таймауты, 50 запросов"]
+    end
+
+    subgraph S2["Этап 2 · dispatcher()"]
+        B["run_in_executor(<br/>ProcessPoolExecutor,<br/>processor.process_rate)"]
+    end
+
+    subgraph S3["Этап 3 · store_consumer()"]
+        C["run_in_executor(<br/>ThreadPoolExecutor,<br/>storage.save_rate)<br/>→ SQLite (rates)"]
+    end
+
+    A -- "asyncio.Queue" --> B
+    B -- "multiprocessing.Queue" --> C
 ```
 
 - **`asyncio.Queue`** связывает сбор данных и диспетчер.
