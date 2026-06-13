@@ -1,65 +1,106 @@
-# Currency Aggregator — гибридный конвейер (asyncio + ProcessPoolExecutor + ThreadPoolExecutor)
+<div align="center">
 
-Итоговая работа: гибридное приложение, в котором одновременно работают три
-парадигмы конкурентного программирования:
+# 💱 Currency Aggregator
 
-- **asyncio + aiohttp** — этап 1: асинхронный сбор курсов валют (I/O-bound);
-- **ProcessPoolExecutor** — этап 2: CPU-bound обработка (`numpy.mean` / `numpy.std`);
-- **ThreadPoolExecutor через `loop.run_in_executor()`** — этап 3: безопасная
-  запись в SQLite синхронной библиотекой `sqlite3`.
+### Гибридный конвейер: `asyncio` + `ProcessPoolExecutor` + `ThreadPoolExecutor`
 
-## Архитектура
+Асинхронный сбор курсов валют, параллельная CPU-bound обработка через `numpy`
+и безопасная запись в SQLite — три парадигмы конкурентности в одном конвейере.
+
+[![Python](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![asyncio](https://img.shields.io/badge/asyncio-aiohttp-2C5BB4)](https://docs.aiohttp.org/)
+[![numpy](https://img.shields.io/badge/numpy-vectorized-013243?logo=numpy&logoColor=white)](https://numpy.org/)
+[![SQLite](https://img.shields.io/badge/storage-SQLite-07405E?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Speedup](https://img.shields.io/badge/speedup-%E2%89%8815%C3%97-success)](report/report.md)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](#)
+
+</div>
+
+---
+
+## 📖 О проекте
+
+**Currency Aggregator** — это демонстрационное приложение, в котором
+**одновременно** работают три модели конкурентного программирования Python,
+каждая решая свою задачу там, где она максимально эффективна:
+
+| Парадигма | Зачем | Где в коде |
+|---|---|---|
+| 🔄 **asyncio + aiohttp** | Массовый I/O-bound сбор данных по HTTP без блокировок | [`aggregator.collect()`](aggregator.py) |
+| ⚙️ **ProcessPoolExecutor** | CPU-bound расчёты (`numpy.mean` / `numpy.std`) в обход GIL | [`aggregator.dispatcher()`](aggregator.py), [`processor.py`](processor.py) |
+| 🧵 **ThreadPoolExecutor** | Безопасная синхронная запись в SQLite без блокировки event loop | [`aggregator.store_consumer()`](aggregator.py), [`storage.py`](storage.py) |
+
+---
+
+## 🏗️ Архитектура
+
+Данные проходят через три этапа конвейера, соединённые очередями, и
+завершаются строго через **poison pills** (`None`):
 
 ```
-Этап 1 (asyncio/aiohttp)        Этап 2 (ProcessPoolExecutor)        Этап 3 (ThreadPoolExecutor)
-collect()                  -->  dispatcher()                  -->  store_consumer()
-- aiohttp + as_completed         - run_in_executor(process_pool,     - run_in_executor(thread_pool, ...)
-- результаты -> asyncio.Queue      processor.process_rate)            - mp.Queue.get() (блокирующий)
-                                  - результат -> multiprocessing.Queue - запись в SQLite (rates)
+┌───────────────────────┐   asyncio.Queue   ┌──────────────────────────────┐   mp.Queue   ┌────────────────────────────┐
+│   Этап 1 · collect()    │ ───────────────▶ │   Этап 2 · dispatcher()        │ ──────────▶ │   Этап 3 · store_consumer() │
+│                         │                   │                                │              │                             │
+│  asyncio + aiohttp       │                   │  run_in_executor(                │              │  run_in_executor(            │
+│  as_completed, ретраи,   │                   │    ProcessPoolExecutor,          │              │    ThreadPoolExecutor,        │
+│  таймауты, 50 запросов   │                   │    processor.process_rate)        │              │    storage.save_rate)         │
+│                         │                   │  → multiprocessing.Queue          │              │  → SQLite (rates)            │
+└───────────────────────┘                   └──────────────────────────────┘              └────────────────────────────┘
 ```
 
-Все три этапа соединены очередями (`asyncio.Queue` между этапом 1 и
-диспетчером, `multiprocessing.Queue` между диспетчером и этапом 3) и
-завершаются только через poison pills (`None`).
+- **`asyncio.Queue`** связывает сбор данных и диспетчер.
+- **`multiprocessing.Queue`** связывает диспетчер и слой сохранения.
+- Никаких `Manager`, `shared_memory`, `Value`/`Array` — только очереди.
 
-## Источники данных (50 запросов)
+---
 
-- **Frankfurter API** (реальные курсы валют ЕЦБ) — 20 запросов (`sources.FX_PAIRS`)
-- **Binance Public Ticker** (криптовалюты) — 10 запросов (`sources.BINANCE_SYMBOLS`)
-- **Mock-запросы** (имитация нестабильных источников) — 20 запросов (`sources.MOCK_PAIRS`)
+## 🌐 Источники данных — 50 запросов
 
-## Структура репозитория
+| Источник | Кол-во | Описание |
+|---|---|---|
+| 🏦 **Frankfurter API** | 20 | Реальные курсы валют ЕЦБ (`sources.FX_PAIRS`) |
+| 🪙 **Binance Public Ticker** | 10 | Курсы криптовалют (`sources.BINANCE_SYMBOLS`) |
+| 🎭 **Mock-источники** | 20 | Имитация нестабильных API (`sources.MOCK_PAIRS`) |
 
-```
+---
+
+## 📂 Структура репозитория
+
+```text
 currency_aggregator/
 ├── README.md
 ├── requirements.txt
-├── main.py          # точка входа
-├── aggregator.py     # основной класс конвейера (Aggregator)
-├── sources.py        # список из 50 запросов (ALL_REQUESTS)
-├── processor.py       # CPU-bound функция process_rate (numpy)
-├── storage.py         # синхронная работа с SQLite
-├── benchmark.py        # последовательный эталон (baseline)
+├── main.py            # точка входа
+├── aggregator.py       # основной класс конвейера (Aggregator)
+├── sources.py          # список из 50 запросов (ALL_REQUESTS)
+├── processor.py         # CPU-bound функция process_rate (numpy)
+├── storage.py           # синхронная работа с SQLite
+├── benchmark.py          # последовательный эталон (baseline)
 └── report/
-    ├── report.md       # отчёт с бенчмарками и анализом
-    ├── run_hybrid.log    # лог гибридного запуска
-    ├── run_baseline.log  # лог последовательного эталона
-    └── run_cprofile.log   # лог профилирования cProfile
+    ├── report.md         # отчёт с бенчмарками и анализом
+    ├── run_hybrid.log      # лог гибридного запуска
+    ├── run_baseline.log    # лог последовательного эталона
+    ├── run_ctrlc2.log       # лог graceful shutdown (Ctrl+C)
+    └── run_cprofile.log     # лог профилирования cProfile
 ```
 
-## Установка
+---
+
+## 🚀 Быстрый старт
+
+### Установка
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Запуск и проверка
+### Запуск
 
 ```bash
 # 1. Последовательный эталон (замер базового времени)
 python -c "from benchmark import run_sequential_baseline; run_sequential_baseline()"
 
-# 2. Гибридный режим
+# 2. Гибридный конвейер
 python main.py
 
 # 3. Проверка БД
@@ -69,21 +110,41 @@ python -c "from storage import fetch_all; print(len(fetch_all())); print(fetch_a
 python -m cProfile -s cumtime main.py
 ```
 
-## Graceful shutdown
+---
 
-При нажатии `Ctrl+C` `asyncio.run()` отменяет задачи конвейера
-(`collect`, `dispatcher`, `store_consumer`), после чего `Aggregator.run()`
-в блоке `finally` корректно завершает `ProcessPoolExecutor` и
-`ThreadPoolExecutor` (`shutdown(wait=True, cancel_futures=True)`).
+## 🛑 Graceful shutdown
 
-## Логирование
+При нажатии `Ctrl+C`:
 
-Формат лога включает `processName`, `threadName` и `correlation_id` (`cid`)
-для каждой записи, что позволяет отследить путь конкретного запроса через
-все три этапа конвейера.
+1. `asyncio.run()` отменяет задачи конвейера (`collect`, `dispatcher`, `store_consumer`).
+2. `Aggregator.run()` перехватывает `CancelledError` и в блоке `finally`
+   корректно завершает `ProcessPoolExecutor` и `ThreadPoolExecutor`
+   (`shutdown(wait=True, cancel_futures=True)`).
+3. `main.py` дополнительно перехватывает `KeyboardInterrupt` и вызывает
+   `aggregator.shutdown()` для принудительной остановки исполнителей.
 
-## Бенчмарки
+---
 
-См. [report/report.md](report/report.md) — там зафиксировано измеренное
-ускорение гибридного конвейера относительно последовательного эталона
-(**≥ 3×**, фактически ~15×) и результаты профилирования.
+## 📊 Логирование
+
+Каждая строка лога содержит:
+
+- `processName` — в каком процессе выполняется код (важно для `ProcessPoolExecutor`);
+- `threadName` — `MainThread` (event loop) или `storage_N` (воркеры `ThreadPoolExecutor`);
+- `cid` (**correlation id**) — позволяет отследить путь конкретного запроса
+  через все три этапа конвейера.
+
+```
+2026-06-13 15:36:42,341 [MainProcess:storage_0] INFO currency_aggregator.storage: cid=FX-JPY-CHF сохранена запись JPY/CHF avg=0.004970 std=0.000050 source=frankfurter
+```
+
+---
+
+## ⚡ Бенчмарки
+
+| Сценарий | Время | Ускорение |
+|---|---|---|
+| Последовательный эталон | 29.14 сек | 1× |
+| **Гибридный конвейер** | **1.91 сек** | **≈ 15×** |
+
+Подробный анализ, графики профилирования и логи — в [`report/report.md`](report/report.md).
